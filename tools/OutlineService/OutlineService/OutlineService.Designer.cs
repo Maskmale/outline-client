@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// To view logs, try this PowerShell query:
+// get-eventlog -logname Application -source OutlineService -newset 20 | format-table -property timegenerated,entrytype,message -autosize
 namespace OutlineService
 {
     partial class OutlineService

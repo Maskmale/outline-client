@@ -36,11 +36,11 @@ static class Program {
       }
       switch (args[0]) {
         case "on":
-          service.ConfigureRouting("10.0.85.1", args[1], false);
+          service.ConfigureRouting(args[1], false);
           break;
         case "off":
-          // "Ethernet" is the most common name but will probably need to be changed on VMs, etc.
-          service.ResetRouting(args[1], "Ethernet");
+          // TODO: args messy here
+          service.ResetRouting(args[1], 0);
           break;
         default:
           ShowUsageAndExit();
@@ -51,7 +51,7 @@ static class Program {
   }
 
   static void ShowUsageAndExit() {
-    Console.WriteLine("usage: on|off <proxy server ip>");
+    Console.WriteLine("usage: on <proxy server ip>|off <proxy server ip> <default gateway interface index>");
     Environment.Exit(1);
   }
 }
